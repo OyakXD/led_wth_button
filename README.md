@@ -13,3 +13,15 @@ Fizemos primeiro o esboço do trabalho na plataforma [tinkercad](https://www.tin
 ## PROJETO FINAL
 
 ![Imagem Real](https://i.imgur.com/ZomcHpc.jpg)
+
+
+# TECNOLOGIAS
+
+- BBB(Beagle Bone Black)
+- ARM335x (bare-metal)
+
+# COMPONENTES
+- 6x JUMPERS
+- 3x RESISTOR
+- 1x LED
+- 1x BOTÃO
