@@ -20,7 +20,7 @@ main:
     ADD R0, R0, R1
 
 
-    @ CONFIGURAÇÕES: MODE 7 (GPIO) | RX ENABLE | PULL-UP
+    @ CONFIGURAÇÕES: MODE 7 (GPIO) | RX ENABLE
     @ BIT 5: RX ENABLE(1)
     @ BIT 4: PULL-UP(1)
     @ BIT 3: PULL-ENABLE(1)
@@ -30,6 +30,7 @@ main:
     
     @ CONFIGURAR GPIO1
     LDR R3, =GPIO_OE
+    
     /* 
     @ CONFIGURA GPIO1_21 COMO SAÍDA (LED) DA BBB
     LDR R4, [R3]
@@ -46,11 +47,6 @@ main:
     LDR R4, [R3]
     ORR R4, R4, #(1 << 6) @ BIT 6 = 1 -> ENTRADA (BOTÃO)
     STR R4, [R3]
-
-    MOV R6, #0  @ ESTADO_BOTAO = 0
-    MOV R7, #1  @ VAR2 = 0
-
-    
 
 loop:
     @ LER BOTÃO GPIO1[6]
