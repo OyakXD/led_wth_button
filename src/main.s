@@ -30,10 +30,16 @@ main:
     
     @ CONFIGURAR GPIO1
     LDR R3, =GPIO_OE
-
+    /* 
     @ CONFIGURA GPIO1_21 COMO SAÍDA (LED) DA BBB
     LDR R4, [R3]
     BIC R4, R4, #(1 << 21) @ BIT 21 = 0 -> saída (LED)
+    STR R4, [R3]
+    */
+
+    @ CONFIGURAR GPIO1_12 COMO SAÍDA (LED) EXTERNO (P8_12)
+    LDR R4, [R3]
+    BIC R4, R4, #(1 << 12) @ BIT 12 = 0 -> saída (LED)
     STR R4, [R3]
 
     @ CONFIGURAR GPIO1_6 COMO ENTRADA (BOTÃO - P8 Pino 3)
@@ -59,13 +65,13 @@ loop:
 
 apaga_led:
     LDR R3, =GPIO_CLEARDATAOUT
-    MOV R10, #(1 << 21)
+    MOV R10, #(1 << 12)
     STR R10, [R3]   @ CLEARDATAOUT -> LED OFF
     B loop
 
 acende_led:
     LDR R3, =GPIO_SETDATAOUT
-    MOV R10, #(1 << 21)
+    MOV R10, #(1 << 12)
     STR R10, [R3]   @ SETDATAOUT -> LED ON
     B loop
 
